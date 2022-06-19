@@ -1,5 +1,5 @@
 #######################################################################
-#MODULE5-Assess which TF are in fact co-expressed with our gene target#
+#Assess which TF are in fact co-expressed with our gene target#
 #######################################################################
 setwd("C:/Users/kitty/OneDrive/Desktop/GENE EXPRESSION MODULATION")
 library(data.table)
@@ -65,6 +65,7 @@ save(Expression_Table,file = "Expression_Table.RData")
 load("Expression_Table.RData")
 View(Expression_Table)
 
+#CORRELATION TEST (PEARSON'S CORRELATION TEST):
 for (n in 2:nrow(Expression_Table)){
   x <- cor.test(as.numeric(Expression_Table[1,]),as.numeric(Expression_Table[n,]))
   print(rownames(Expression_Table)[n])
@@ -72,7 +73,6 @@ for (n in 2:nrow(Expression_Table)){
 }
 
 
-
+#PLOT CONSTRUCTED TO SHOW HIGHEST CORRELATION (TRANSCRIPTION FACTOR "TAF1" WITH "RNF20":
 plot(as.numeric(Expression_Table[1,]),as.numeric(Expression_Table["TAF1",]),ylab = "Expression levels of TAF1", xlab = "Expression levels of RNF20")
-
 abline(coef = c(0.65,0.65),col="red")
