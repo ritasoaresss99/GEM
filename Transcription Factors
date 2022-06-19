@@ -75,4 +75,4 @@ for (n in 2:nrow(Expression_Table)){
 
 plot(as.numeric(Expression_Table[1,]),as.numeric(Expression_Table["TAF1",]),ylab = "Expression levels of TAF1", xlab = "Expression levels of RNF20")
 
-abline(coef = c(0,0),col="red")
+abline(coef = c(0.65,0.65),col="red")
